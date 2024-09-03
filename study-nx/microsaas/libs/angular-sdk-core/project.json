@@ -1,0 +1,9 @@
+{
+  "name": "angular-sdk-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/angular-sdk-core/src",
+  "prefix": "microsaas",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}

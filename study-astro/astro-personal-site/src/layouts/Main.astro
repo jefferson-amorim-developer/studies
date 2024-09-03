@@ -1,0 +1,65 @@
+---
+import Footer from "../components/Footer.astro";
+import NavigationBar from "../components/NavigationBar.astro";
+
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Frau Katerina's website" />
+    <title>Astro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script is:inline>
+      const DARK_THEME_CLASS = "dark";
+      const COLOUR_MODE = "COLOUR_MODE";
+      const LIGHT_THEME = "LIGHT";
+      const DARK_THEME = "DARK";
+
+      const rootEl = document.documentElement;
+
+      const getInitialColourMode = () => {
+        const previouslySavedColourMode =
+          window.localStorage.getItem(COLOUR_MODE);
+
+        if (previouslySavedColourMode) {
+          return previouslySavedColourMode;
+        }
+
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return DARK_THEME;
+        }
+
+        return LIGHT_THEME;
+      };
+
+      const setInitialColourMode = (mode) => {
+        if (mode === LIGHT_THEME) {
+          rootEl.classList.remove(DARK_THEME_CLASS);
+        } else {
+          rootEl.classList.add(DARK_THEME_CLASS);
+        }
+      };
+
+      const initialColourMode = getInitialColourMode();
+      setInitialColourMode(initialColourMode);
+    </script>
+  </head>
+  <body>
+    <main>
+      <NavigationBar />
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>

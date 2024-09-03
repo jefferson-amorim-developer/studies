@@ -1,0 +1,9 @@
+**/target
+**/build
+**/node_modules
+**/bin
+**/.angular
+**/dist
+**/.m2
+**/node
+**/*.swp

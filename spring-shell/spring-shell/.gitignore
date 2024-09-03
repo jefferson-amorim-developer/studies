@@ -1,0 +1,26 @@
+.classpath
+.project
+.settings/
+
+target/
+build/
+bin/
+.jfrog/
+
+.gradle
+.idea/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+spring-shell.log
+shell.log
+shell.log.*.gz
+shell.log.*.tmp
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

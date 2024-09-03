@@ -1,0 +1,79 @@
+{
+  "name": "example-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "microsaas",
+  "sourceRoot": "apps/example-ui/src",
+  "tags": [],
+
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/example-ui",
+        "index": "apps/example-ui/src/index.html",
+        "browser": "apps/example-ui/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/example-ui/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/example-ui/src/favicon.ico",
+          "apps/example-ui/src/assets"
+        ],
+        "styles": ["apps/example-ui/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "example-ui:build:production"
+        },
+        "development": {
+          "buildTarget": "example-ui:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "example-ui:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "example-ui:build",
+        "staticFilePath": "dist/apps/example-ui/browser"
+      }
+    }
+  },
+
+  "implicitDependencies": ["angular-sdk-core"]
+}

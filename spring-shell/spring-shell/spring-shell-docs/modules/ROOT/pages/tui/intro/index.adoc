@@ -1,0 +1,14 @@
+[[tui-introduction]]
+= Introduction
+:page-section-summary-toc: 1
+
+ifndef::snippets[:snippets: ../../../../../src/test/java/org/springframework/shell/docs]
+
+Lets start with a simple app which prints "hello world" in a view.
+[source, java, indent=0]
+----
+include::{snippets}/TerminalUiSnippets.java[tag=introsample]
+----
+
+There is not much to see here other than `TerminalUI` is a class handling
+all logic aroung views and uses `View` as it's root view.

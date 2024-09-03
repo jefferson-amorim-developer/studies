@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Accounts Rest API",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "dev.jeffersonamorim.accountsrestapi.AccountsRestApiApplication",
+      "projectName": "accounts-rest-api",
+      "args": "",
+      "envFile": "${workspaceFolder}/accounts-rest-api/.env"
+    }
+  ]
+}
